@@ -10,13 +10,8 @@ service=ibm_watson.AssistantV2(
     url='<URL>'
 )
 assistant_id='<assistant_id>'
-session = service.create_session(
-    assistant_id
-).get_result()
 
-session = session['session_id']
-
-request_reply = response_handler( service,assistant_id,session)
+request_reply = response_handler(service,assistant_id)
 
 update_id = None
 while True:
