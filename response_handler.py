@@ -3,17 +3,11 @@ import json
 import ibm_watson
 
 class response_handler():
-	def __init__ (self,service,assistant_id ,session_id):
-		self.session_id = session_id
+	def __init__ (self,service,assistant_id ):
 		self.assistant_id = assistant_id
 		self.service = service
 	
-	def __init__ (self,service,assistant_id ,session_id):
-		self.session_id = session_id
-		self.assistant_id = assistant_id
-		self.service = service
-	
-	def get_watson_response(self ,msg):
+	def get_watson_response(self):
 		response = self.service.message(
 				assistant_id=self.assistant_id,
 				session_id= self.session_id,
@@ -27,11 +21,11 @@ class response_handler():
 	def make_reply(self, msg):
 		if msg is not None:
 			try:			
-				response = self.get_watson_response(msg)
+				response = self.get_watson_response()
 			except:
-				session = self.service.create_session(self.assistant_id).get_result()
+				session = service.create_session(self.assistant_id).get_result()
 				self.session_id = session['session_id']
-				response = self.get_watson_response(msg)
+				response = self.get_watson_response()
 				
 	
 		if len(response["output"]["intents"]) > 0 and response["output"]["intents"][0]['intent'] != 'Google_Custom_Search':
