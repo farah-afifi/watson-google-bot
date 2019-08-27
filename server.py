@@ -7,7 +7,7 @@ bot = telegram_chatbot( 'config.cfg' )#or the path of the file
 service=ibm_watson.AssistantV2(
     version='2019-02-28',
     iam_apikey='<your generated API key on watson assistant credentials>',
-    url='<URL>'
+    url='https://gateway-lon.watsonplatform.net/assistant/api'
 )
 assistant_id='<assistant_id>'
 

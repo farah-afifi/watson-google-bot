@@ -10,7 +10,7 @@ class telegram_chatbot():
 
 
 	def get_updates(self, offset = None):
-		url = self.baseURL + 'getUpdates?timeout=100/'
+		url = self.baseURL + 'getUpdates?timeout=50/'
 		if offset :
 			url = url + '&offset={}/'.format(offset + 1)
 		r = requests.get(url)
